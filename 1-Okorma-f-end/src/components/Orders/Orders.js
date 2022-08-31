@@ -35,7 +35,7 @@ const Orders = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                        <button onClick={()=>handleCheakOut(cart)}>Proceed Checkout</button>
+                        <button className='procced-btn' onClick={()=>handleCheakOut(cart)}>Proceed Checkout</button>
                 </Cart>
             </div>
         </div>

@@ -13,6 +13,7 @@
 }
 .product-info{
     margin: 0 14px;
+    overflow: hidden;
 }
 .product-info p{
     margin-bottom: 0;

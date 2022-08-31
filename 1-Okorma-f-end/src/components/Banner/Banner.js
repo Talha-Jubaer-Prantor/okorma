@@ -3,7 +3,7 @@ import './baner.css'
 
 const Banner = () => {
     return (
-        <div className='container banner-container'>
+        <div className=' banner-container'>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
