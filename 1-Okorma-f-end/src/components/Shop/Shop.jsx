@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Banner from '../Banner/Banner';
-import Cart from '../Cart/Cart';
+import Header from '../Header/Header';
 import Product from '../Product/Product';
-import SearchBar from '../SearchBar/SearchBar';
 import './Shop.css';
 
 const Shop = () => {
@@ -38,16 +36,18 @@ const Shop = () => {
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
-        
         setCart(newCart);
         addToDb(selectedProduct.id);
+
+        console.log(cart)
+
     }
 
     return (
             
             <div>
-                {/* <SearchBar></SearchBar> */}
-                <Banner></Banner>
+                <Header></Header>
+                {/* <Banner></Banner> */}
         <div className='shop-container'>
             <div className="products-container">
                 {

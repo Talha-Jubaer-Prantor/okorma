@@ -5,7 +5,7 @@ const userSchema=require('../Schema/userSchema')
 const User=new mongoose.model('User',userSchema)
 
 
-router.post('/user', async(req,res)=>{
+router.post('/user', (req,res)=>{
 
     const {name,email,phone,password}=req.body
 
