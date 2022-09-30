@@ -1,7 +1,7 @@
 const mongoose= require("mongoose")
 
 const cartSchema=mongoose.Schema({
-    userId:{type:String},
+    email:{type:String},
     cart:{type:Array}
 })
 

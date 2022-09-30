@@ -14,7 +14,9 @@ app.use(cors())
 dotenv.config()
 
 
-app.post('/user', createUserRouter,cartRouter)
+app.post('/user',createUserRouter)
+app.post('/cart', cartRouter)
+
 app.post('/signin',loginRouter)
 app.post('/order',orderRouter)
 // app.post('/cart',cartRouter)

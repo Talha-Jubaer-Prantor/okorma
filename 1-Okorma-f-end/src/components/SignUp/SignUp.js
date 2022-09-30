@@ -27,7 +27,7 @@ const SignUp = () => {
     .then(data=>{
       if(data){
         console.log(data)
-        // window.location.replace("/login");
+        window.location.replace("/login");
       }
     })
 }

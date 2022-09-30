@@ -25,35 +25,44 @@ const Shop = () => {
     }, [products])
 
     const handleAddToCart = (selectedProduct) =>{
-        let newCart = [];
-        const exists = cart.find(product => product.id === selectedProduct.id);
-        if(!exists){
-            selectedProduct.quantity = 1;
-            newCart = [...cart, selectedProduct];
+        // let newCart = [];
+        // const exists = cart.find(product => product.id === selectedProduct.id);
+        // if(!exists){
+        //     selectedProduct.quantity = 1;
+        //     newCart = [...cart, selectedProduct];
+        // }
+        // else{
+        //     const rest = cart.filter(product => product.id !== selectedProduct.id);
+        //     exists.quantity = exists.quantity + 1;
+        //     newCart = [...rest, exists];
+        // }
+        // setCart(newCart);
+        // addToDb(selectedProduct.id);
+
+
+        const user=JSON.parse(localStorage.getItem('loggedData'))
+        if(user){
+         fetch('http://localhost:8080/cart',{
+            method: 'POST',
+            headers:{'content-type':'application/json'},
+            body: JSON.stringify({'email':user.email,selectedProduct})
+            })
+        }else{
+            window.location.replace('/login')
         }
-        else{
-            const rest = cart.filter(product => product.id !== selectedProduct.id);
-            exists.quantity = exists.quantity + 1;
-            newCart = [...rest, exists];
-        }
-        setCart(newCart);
-        addToDb(selectedProduct.id);
-
-
-        const userId=JSON.parse(localStorage.getItem('loggedData')).userId
-        const cartDet=[{'userId':userId},newCart]
-        console.log(cartDet)
-    fetch('http://localhost:8080/cart',{
-      method: 'POST',
-      headers:{
-        'content-type':'application/json'
-      },
-      body: JSON.stringify(cartDet)
-    })
+    //     const cartDet=[{'userId':userId},newCart]
+    //     console.log(cartDet)
+    // fetch('http://localhost:8080/cart',{
+    //   method: 'POST',
+    //   headers:{
+    //     'content-type':'application/json'
+    //   },
+    //   body: JSON.stringify(cartDet)
+    // })
 
 
 
-        console.log(newCart)
+        console.log(selectedProduct)
 
     }
 

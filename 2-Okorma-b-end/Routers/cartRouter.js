@@ -2,19 +2,18 @@ const express=require('express')
 const router=express.Router()
 const mongoose=require('mongoose')
 const cartSchema=require('../Schema/cartSchema')
-const Cart=new mongoose.model('Cart',cartSchema)
+const Cart= mongoose.model('Cart',cartSchema)
 
 
-router.post('/user',(req,res)=>{
+router.post('/cart',async (req,res)=>{
     
-
-    
-    const newCart=new Cart({
-        'userId':req.body.,
-        'cart':[]
+console.log(req.body)
+    await Cart.findOneAndUpdate({email:req.body.email},{
+        $push:{
+            cart:req.body.selectedProduct
+        }
     })
-
-    newCart.save()
+   
     
 })
 
