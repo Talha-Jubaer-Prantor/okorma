@@ -39,7 +39,21 @@ const Shop = () => {
         setCart(newCart);
         addToDb(selectedProduct.id);
 
-        console.log(cart)
+
+        const userId=JSON.parse(localStorage.getItem('loggedData')).userId
+        const cartDet=[{'userId':userId},newCart]
+        console.log(cartDet)
+    fetch('http://localhost:8080/cart',{
+      method: 'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(cartDet)
+    })
+
+
+
+        console.log(newCart)
 
     }
 

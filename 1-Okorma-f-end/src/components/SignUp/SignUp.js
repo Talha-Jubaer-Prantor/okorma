@@ -22,9 +22,12 @@ const SignUp = () => {
         'content-type': 'application/json'
       },
       body: JSON.stringify(user)
-    }).then(res=>{
-      if(res){
-        window.location.replace("/login");
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data){
+        console.log(data)
+        // window.location.replace("/login");
       }
     })
 }

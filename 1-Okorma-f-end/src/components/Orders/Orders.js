@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import { removeFromDb } from '../../utilities/fakedb';
+import AnotherMenu from '../AnotherMenu/AnotherMenu';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Orders.css';
@@ -41,7 +42,7 @@ console.log(orderData)
     
     return (
         <div className='shop-container'>
-            <a href="/">Home</a>
+            <AnotherMenu></AnotherMenu>
             <div className="review-items-container">
                 {
                     cart.map(product => <ReviewItem

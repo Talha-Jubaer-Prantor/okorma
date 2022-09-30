@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import AnotherMenu from '../AnotherMenu/AnotherMenu';
 import './Menu.css'
 
 const Menu = (product) => {
@@ -23,27 +24,23 @@ const Menu = (product) => {
     return (
         <div className='menu'>
 
-            <nav className="navbar navbar-light bg-light justify-content-between container">
-                <a className="navbar-brand" href='/'><b>Trimart</b></a>
-                <div>
-                <button className="btn my-2 my-sm-0" ><b><a style={{'textDecoration':'none','color':'black'}} href='/'>Home</a></b></button>
-                </div>
-            </nav>
-
+            <AnotherMenu></AnotherMenu>
             <div className='order-status'>
         
+            <h4 style={{'textAlign':'center'}}>My Orders</h4>
+        {/* Menu List */}
                {
                 goods?.map(good=> 
                 <div>
+                {good.order.map(orderItem=>
                     <li className='order-item' key={good._id}>
-                    li {good.length}
-                </li>
-                
-                {good.order.map(orderItem=> <li>{orderItem.name}</li>)}
+                        {orderItem.name}
+                        <span style={{'float':'right','color':'red','paddingRight':'1%'}}> <b>Waiting for confirmation</b> </span>
+                    </li>)}
                 </div>
-                
                 )
                }
+        {/* Menu List */}
                
 
             </div>

@@ -21,9 +21,9 @@ router.post('/signin', async(req,res)=>{
             email:validUser[0].email
         },process.env.JWT_SECRET)
         res.send({userToken,'userId':validUser[0].id,'name':validUser[0].name,'email':validUser[0].email})
+    }else{res.send([])}
     }else{
-    }
-    }else{
+        res.send([])
     }
 }catch(err){
     res.send(err)

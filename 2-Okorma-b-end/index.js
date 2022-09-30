@@ -5,6 +5,8 @@ const dotenv=require('dotenv')
 const createUserRouter=require('./Routers/createUserRouter')
 const loginRouter=require('../2-Okorma-b-end/Routers/loginRouter')
 const orderRouter=require('./Routers/orderRouter')
+const cartRouter=require('./Routers/cartRouter')
+
 
 const app=express()
 app.use(express.json())
@@ -12,9 +14,10 @@ app.use(cors())
 dotenv.config()
 
 
-app.post('/user', createUserRouter)
+app.post('/user', createUserRouter,cartRouter)
 app.post('/signin',loginRouter)
 app.post('/order',orderRouter)
+// app.post('/cart',cartRouter)
 app.get('/myorder/:id',orderRouter)
 
 mongoose.connect("mongodb+srv://cluster0:cluster0@cluster0.hacpu.mongodb.net/?retryWrites=true&w=majority")

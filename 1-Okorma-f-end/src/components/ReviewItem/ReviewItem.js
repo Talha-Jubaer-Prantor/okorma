@@ -1,6 +1,7 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import AnotherMenu from '../AnotherMenu/AnotherMenu';
 import './ReviewItem.css'; 
 
 const ReviewItem = (props) => {
@@ -9,7 +10,7 @@ const ReviewItem = (props) => {
     
 
     
-    return (
+    return (<div>
         <div className='review-item'>
             <div>
                 <img src={img} alt="img"/>
@@ -29,6 +30,7 @@ const ReviewItem = (props) => {
                     </button>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

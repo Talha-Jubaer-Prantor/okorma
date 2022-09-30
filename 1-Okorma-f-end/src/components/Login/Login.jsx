@@ -1,5 +1,6 @@
 import { Alert } from 'bootstrap';
 import React from 'react';
+import AnotherMenu from '../AnotherMenu/AnotherMenu';
 import './Login.css'
 const Login = () => {
 
@@ -24,19 +25,22 @@ const Login = () => {
     }).then(res=>res.json())
       .then(data=>{
 
-      if(data){
+      if(data.userId){
         window.location.replace("/");
         localStorage.setItem('loggedData',JSON.stringify(data))
+        console.log(data)
       }else{
         window.location.replace('/loginerror')
       }
-
+// console.log(data)
        
       })
   }
 
 
     return (
+      <div>
+        <AnotherMenu></AnotherMenu>
         <div className='login-container'>
           <h1>Login</h1>
             <form onSubmit={loginHandler}>
@@ -56,6 +60,7 @@ const Login = () => {
   <br /><br />
       <p>Don't have any account <a href="/signup">create one</a></p>
 </form>
+        </div>
         </div>
     );
 };
