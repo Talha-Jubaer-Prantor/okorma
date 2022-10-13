@@ -17,10 +17,11 @@ const Menu = (product) => {
     
 
     
-    // useEffect(()=>{
-        // goods.map(goodItem=>console.log(goodItem))
-    // },5000)
-    // console.log(item)
+    // const ConfirmationMsg=()=>{
+        // if(goods.)
+    // }
+    
+
     return (
         <div className='menu'>
 
@@ -31,12 +32,20 @@ const Menu = (product) => {
         {/* Menu List */}
                {
                 goods?.map(good=> 
-                <div>
+                <div className='order-container'>
+
                 {good.order.map(orderItem=>
-                    <li className='order-item' key={good._id}>
+                    <li className='order-item'>
+                        <img src={orderItem.img} alt="" />
                         {orderItem.name}
-                        <span style={{'float':'right','color':'red','paddingRight':'1%'}}> <b>Waiting for confirmation</b> </span>
                     </li>)}
+
+                   {good.status?( 
+                   <span style={{'float':'right','color':'#21da02','paddingRight':'1%'}}> <b>Order Confirmed</b> </span>
+                   ):(
+                    <span style={{'float':'right','color':'red','paddingRight':'1%'}}> <b>Waiting for confirmation</b> </span>
+                   )
+                   }
                 </div>
                 )
                }
